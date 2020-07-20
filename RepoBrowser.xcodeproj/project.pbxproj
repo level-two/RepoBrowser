@@ -14,6 +14,7 @@
 		E35E653924C0CFAE0009F975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35E653724C0CFAE0009F975 /* LaunchScreen.storyboard */; };
 		E35E656224C5DC280009F975 /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656124C5DC280009F975 /* GitHubApi.swift */; };
 		E35E656524C5E4040009F975 /* ReposStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656424C5E4040009F975 /* ReposStore.swift */; };
+		E35E656724C5E85A0009F975 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656624C5E85A0009F975 /* Repo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E35E653A24C0CFAE0009F975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E35E656124C5DC280009F975 /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		E35E656424C5E4040009F975 /* ReposStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposStore.swift; sourceTree = "<group>"; };
+		E35E656624C5E85A0009F975 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				E35E652C24C0CFA50009F975 /* AppDelegate.swift */,
+				E35E656824C5E85F0009F975 /* Model */,
 				E35E656324C5DC310009F975 /* ViewModel */,
 				E35E656024C5D69C0009F975 /* View */,
 				E35E653224C0CFA50009F975 /* Main.storyboard */,
@@ -84,6 +87,14 @@
 				E35E656424C5E4040009F975 /* ReposStore.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E35E656824C5E85F0009F975 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E35E656624C5E85A0009F975 /* Repo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 			files = (
 				E35E656224C5DC280009F975 /* GitHubApi.swift in Sources */,
 				E35E656524C5E4040009F975 /* ReposStore.swift in Sources */,
+				E35E656724C5E85A0009F975 /* Repo.swift in Sources */,
 				E35E653124C0CFA50009F975 /* RepoBrowserViewController.swift in Sources */,
 				E35E652D24C0CFA50009F975 /* AppDelegate.swift in Sources */,
 			);
