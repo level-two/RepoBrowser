@@ -12,6 +12,7 @@ class RepoBrowserViewController: UIViewController {
 
   var gitHubApi = GitHubApi()
   var reposStore: ReposStore!
+  let repoDataSource = RepoDataSource()
   
   @IBOutlet weak var searchTextField: UITextField!
   @IBOutlet weak var collectionView: UICollectionView!
@@ -20,6 +21,7 @@ class RepoBrowserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     searchTextField.delegate = self
+    collectionView.dataSource = repoDataSource
   }
 
 
@@ -49,8 +51,8 @@ extension RepoBrowserViewController: UITextFieldDelegate {
           print("Successfully found \(repos.count) repos.")
         case let .failure(error):
           print("Error downloading repos:  \(error) $$$$")
-
         }
+        self.collectionView.reloadSections(IndexSet(integer: 0))
       }
     } else {
       searchTextField.text = ""

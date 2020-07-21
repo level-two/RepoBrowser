@@ -15,6 +15,8 @@
 		E35E656224C5DC280009F975 /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656124C5DC280009F975 /* GitHubApi.swift */; };
 		E35E656524C5E4040009F975 /* ReposStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656424C5E4040009F975 /* ReposStore.swift */; };
 		E35E656724C5E85A0009F975 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656624C5E85A0009F975 /* Repo.swift */; };
+		E35E656A24C72C630009F975 /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656924C72C630009F975 /* RepoViewModel.swift */; };
+		E35E656C24C733180009F975 /* RepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656B24C733180009F975 /* RepoDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		E35E656124C5DC280009F975 /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		E35E656424C5E4040009F975 /* ReposStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposStore.swift; sourceTree = "<group>"; };
 		E35E656624C5E85A0009F975 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		E35E656924C72C630009F975 /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
+		E35E656B24C733180009F975 /* RepoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				E35E653024C0CFA50009F975 /* RepoBrowserViewController.swift */,
+				E35E656B24C733180009F975 /* RepoDataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 			children = (
 				E35E656124C5DC280009F975 /* GitHubApi.swift */,
 				E35E656424C5E4040009F975 /* ReposStore.swift */,
+				E35E656924C72C630009F975 /* RepoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -168,8 +174,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35E656A24C72C630009F975 /* RepoViewModel.swift in Sources */,
 				E35E656224C5DC280009F975 /* GitHubApi.swift in Sources */,
 				E35E656524C5E4040009F975 /* ReposStore.swift in Sources */,
+				E35E656C24C733180009F975 /* RepoDataSource.swift in Sources */,
 				E35E656724C5E85A0009F975 /* Repo.swift in Sources */,
 				E35E653124C0CFA50009F975 /* RepoBrowserViewController.swift in Sources */,
 				E35E652D24C0CFA50009F975 /* AppDelegate.swift in Sources */,
