@@ -6,7 +6,12 @@
 //  Copyright © 2020 malakoipechyva. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum RepoImageError: Error {
+  case imageCreationError
+  case missingImageUrl
+}
 
 class ReposStore {
   
@@ -34,5 +39,35 @@ class ReposStore {
       return .failure(error!)
     }
     return gitHubApi.parseJSON(reposData: reposData)
+  }
+  
+  func fetchRepoImage(for repo: Repo, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    guard let repoOwnerPhotoURL = repo.owner?.avatarImgURL else {
+      completion(.failure(RepoImageError.missingImageUrl))
+      return
+    }
+    let request = URLRequest(url: repoOwnerPhotoURL)
+    let task = session.dataTask(with: request) {
+      (data, response, error) in
+      let result = self.processRepoImageRequest(data: data, error: error)
+       OperationQueue.main.addOperation {
+      completion(result)
+      }
+    }
+    task.resume()
+  }
+  
+  func processRepoImageRequest(data: Data?, error: Error?) -> Result<UIImage, Error> {
+    guard
+      let imageData = data,
+      let image = UIImage(data: imageData)
+      else {
+        if data == nil {
+          return .failure(error!)
+        } else {
+          return .failure(RepoImageError.imageCreationError)
+        }
+    }
+    return .success(image)
   }
 }
