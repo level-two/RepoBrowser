@@ -48,8 +48,10 @@ extension RepoBrowserViewController: UITextFieldDelegate {
         (reposResult) in
         switch reposResult {
         case let .success(repos):
+          self.repoDataSource.repo = repos.map({return RepoViewModel(repo: $0 )})
           print("Successfully found \(repos.count) repos.")
         case let .failure(error):
+          self.repoDataSource.repo.removeAll()
           print("Error downloading repos:  \(error) $$$$")
         }
         self.collectionView.reloadSections(IndexSet(integer: 0))
