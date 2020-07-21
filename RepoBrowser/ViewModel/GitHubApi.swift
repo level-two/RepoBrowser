@@ -8,6 +8,14 @@
 
 import Foundation
 
+struct Repos: Decodable {
+  let repo: [Repo]
+  
+  enum CodingKeys: String, CodingKey {
+    case repo = "items"
+  }
+}
+
 struct GitHubApi {
   
   let baseURLString = "https://api.github.com/search/repositories"
@@ -28,6 +36,20 @@ struct GitHubApi {
     }
     components.queryItems = queryItems
     return components.url!
+  }
+  
+  func parseJSON(reposData: Data) -> Result<[Repo], Error> {
+    let decoder = JSONDecoder()
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    decoder.dateDecodingStrategy = .formatted(dateFormatter)
+    do {
+      let decodedData = try decoder.decode(Repos.self, from: reposData)
+      return .success(decodedData.repo)
+    } catch {
+      return .failure(error)
+    }
+    
   }
   
   

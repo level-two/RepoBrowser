@@ -41,7 +41,19 @@ extension RepoBrowserViewController: UITextFieldDelegate {
         return gitHubApi.makeGitHubURL(query: query)
       }
       print("\(gitHubURL)")
-    
+      
+      reposStore.fetchRepos(url: gitHubURL) {
+        (reposResult) in
+        switch reposResult {
+        case let .success(repos):
+          print("Successfully found \(repos.count) repos.")
+        case let .failure(error):
+          print("Error downloading repos:  \(error) $$$$")
+
+        }
+      }
+    } else {
+      searchTextField.text = ""
     }
   }
   
