@@ -28,7 +28,7 @@ struct GitHubApi {
       "q": query,
       "sort": "stars",
       "order": "desc",
-      "per_page": "1000"
+      "per_page": "100"
     ]
     for (key, value) in baseParams {
       let item = URLQueryItem(name: key, value: value)

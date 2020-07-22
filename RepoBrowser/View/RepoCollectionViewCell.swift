@@ -12,8 +12,8 @@ class RepoCollectionViewCell: UICollectionViewCell {
     
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var spinner: UIActivityIndicatorView!
-  @IBOutlet weak var label: UILabel! 
-  
+  @IBOutlet weak var label: UILabel!
+ 
   
   func updateCellImage(displaying image: UIImage?) {
     if let imageToDisplay = image {

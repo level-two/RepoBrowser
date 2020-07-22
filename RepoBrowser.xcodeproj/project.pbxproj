@@ -18,6 +18,7 @@
 		E35E656A24C72C630009F975 /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656924C72C630009F975 /* RepoViewModel.swift */; };
 		E35E656C24C733180009F975 /* RepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656B24C733180009F975 /* RepoDataSource.swift */; };
 		E35E656E24C7412E0009F975 /* RepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656D24C7412E0009F975 /* RepoCollectionViewCell.swift */; };
+		E35E657024C84F9E0009F975 /* RepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656F24C84F9E0009F975 /* RepoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E35E656924C72C630009F975 /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
 		E35E656B24C733180009F975 /* RepoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDataSource.swift; sourceTree = "<group>"; };
 		E35E656D24C7412E0009F975 /* RepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E35E656F24C84F9E0009F975 /* RepoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				E35E653024C0CFA50009F975 /* RepoBrowserViewController.swift */,
 				E35E656B24C733180009F975 /* RepoDataSource.swift */,
 				E35E656D24C7412E0009F975 /* RepoCollectionViewCell.swift */,
+				E35E656F24C84F9E0009F975 /* RepoDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				E35E656724C5E85A0009F975 /* Repo.swift in Sources */,
 				E35E653124C0CFA50009F975 /* RepoBrowserViewController.swift in Sources */,
 				E35E652D24C0CFA50009F975 /* AppDelegate.swift in Sources */,
+				E35E657024C84F9E0009F975 /* RepoDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
