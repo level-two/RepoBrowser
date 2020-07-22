@@ -67,10 +67,10 @@ extension RepoBrowserViewController: UITextFieldDelegate {
 extension RepoBrowserViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-    let repoForImage = repoDataSource.repo[indexPath.row]
+    let repoForDisplay = repoDataSource.repo[indexPath.row]
     
-    reposStore.fetchRepoImage(for: repoForImage) { (result) -> Void in
-      guard let repoImageIndex = self.repoDataSource.repo.firstIndex(of: repoForImage),
+    reposStore.fetchRepoImage(for: repoForDisplay) { (result) -> Void in
+      guard let repoImageIndex = self.repoDataSource.repo.firstIndex(of: repoForDisplay),
         case let .success(image) = result else {
           return
       }
