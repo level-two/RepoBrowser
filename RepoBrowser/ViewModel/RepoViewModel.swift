@@ -27,3 +27,9 @@ struct RepoViewModel {
   }
   
 }
+
+extension RepoViewModel: Equatable {
+  static func == (lhs: RepoViewModel, rhs: RepoViewModel) -> Bool {
+    return lhs.fullRepoName == rhs.fullRepoName
+  }
+}

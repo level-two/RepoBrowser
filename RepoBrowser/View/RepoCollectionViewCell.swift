@@ -12,7 +12,7 @@ class RepoCollectionViewCell: UICollectionViewCell {
     
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var spinner: UIActivityIndicatorView!
-  @IBOutlet weak var label: UILabel!
+  @IBOutlet weak var label: UILabel! 
   
   
   func updateCellImage(displaying image: UIImage?) {
@@ -22,7 +22,6 @@ class RepoCollectionViewCell: UICollectionViewCell {
     } else {
       spinner.startAnimating()
       imageView.image = nil
-      label.text = ""
     }
   }
 }
