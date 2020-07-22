@@ -24,6 +24,20 @@ class RepoBrowserViewController: UIViewController {
     collectionView.dataSource = repoDataSource
     collectionView.delegate = self
   }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    switch segue.identifier {
+    case "showRepo":
+      if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+        let repo = repoDataSource.repo[selectedIndexPath.row]
+        let destinationVC = segue.destination as! RepoDetailViewController
+        destinationVC.repo = repo
+        destinationVC.reposStore = reposStore
+      }
+    default:
+      preconditionFailure("Unexpected segue identifier.")
+    }
+  }
 
 
   @IBAction func searchButton(_ sender: Any) {
@@ -61,6 +75,8 @@ extension RepoBrowserViewController: UITextFieldDelegate {
       searchTextField.text = ""
     }
   }
+  
+  
 }
 
 // MARK: - UICollectionViewDelegate

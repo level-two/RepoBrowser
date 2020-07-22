@@ -87,7 +87,7 @@
                                             <outlet property="imageView" destination="WIB-28-Bmq" id="Cva-DY-pTc"/>
                                             <outlet property="label" destination="T9F-mt-vLB" id="TpF-Bj-ZND"/>
                                             <outlet property="spinner" destination="GqA-3R-qUX" id="TVh-HG-Jgh"/>
-                                            <segue destination="o1y-eW-IBW" kind="show" id="9gz-9w-VHP"/>
+                                            <segue destination="o1y-eW-IBW" kind="show" identifier="showRepo" id="9gz-9w-VHP"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -126,8 +126,11 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9G5-XY-anp">
                                 <rect key="frame" x="0.0" y="88" width="414" height="502.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="502.5" id="IfQ-b5-GLM"/>
+                                </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="jLl-99-a0B">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jLl-99-a0B">
                                 <rect key="frame" x="0.0" y="610.5" width="414" height="83"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fullName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fc-MG-6hA">
@@ -136,12 +139,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-DP-EW5">
-                                        <rect key="frame" x="0.0" y="62.5" width="414" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="URL" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kuy-mW-XID">
+                                        <rect key="frame" x="0.0" y="20.5" width="414" height="62.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Description" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Juz-cX-gG8">
@@ -197,7 +202,7 @@
                         <outlet property="imageView" destination="9G5-XY-anp" id="7OC-aC-dqA"/>
                         <outlet property="languageLabel" destination="tFx-gE-Eub" id="YZP-Hq-2Mx"/>
                         <outlet property="nameLabel" destination="5fc-MG-6hA" id="BgR-XX-93F"/>
-                        <outlet property="urlLabel" destination="fKI-DP-EW5" id="2kU-4F-I6q"/>
+                        <outlet property="urlView" destination="Kuy-mW-XID" id="0C0-A3-INi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1f0-hH-heo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

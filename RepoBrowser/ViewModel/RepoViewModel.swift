@@ -10,11 +10,13 @@ import Foundation
 
 struct RepoViewModel {
   let fullRepoName: String?
-  let htmlURL: URL?
+  let htmlURL: String?
   let description: String?
   let language: String?
-  let dateUpdated: Date?
+  let dateUpdated: String?
   let avatarImgURL: URL?
+  
+  let dateFormatter = DateFormatter()
   
   //MARK: Dependency injection
   init(repo: Repo) {
@@ -22,7 +24,8 @@ struct RepoViewModel {
     self.htmlURL = repo.htmlURL
     self.description = repo.description
     self.language = repo.language
-    self.dateUpdated = repo.dateUpdated
+    dateFormatter.dateStyle = .full
+    self.dateUpdated = dateFormatter.string(from: repo.dateUpdated!)
     self.avatarImgURL = repo.owner?.avatarImgURL
   }
   

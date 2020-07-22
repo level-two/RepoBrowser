@@ -11,7 +11,7 @@ import Foundation
 struct Repo: Codable {
   let fullRepoName: String?
   let owner: Owner?
-  let htmlURL: URL?
+  let htmlURL: String?
   let description: String?
   let language: String?
   let dateUpdated: Date?
