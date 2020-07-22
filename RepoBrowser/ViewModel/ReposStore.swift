@@ -41,8 +41,8 @@ class ReposStore {
     return gitHubApi.parseJSON(reposData: reposData)
   }
   
-  func fetchRepoImage(for repo: Repo, completion: @escaping (Result<UIImage, Error>) -> Void) {
-    guard let repoOwnerPhotoURL = repo.owner?.avatarImgURL else {
+  func fetchRepoImage(for repo: RepoViewModel, completion: @escaping (Result<UIImage, Error>) -> Void) {
+    guard let repoOwnerPhotoURL = repo.avatarImgURL else {
       completion(.failure(RepoImageError.missingImageUrl))
       return
     }
