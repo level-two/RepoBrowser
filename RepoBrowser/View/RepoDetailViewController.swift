@@ -11,9 +11,45 @@ import UIKit
 class RepoDetailViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var nameLabel: UILabel!
-  @IBOutlet weak var urlLabel: UILabel!
-  @IBOutlet weak var descriptionText: UITextView!
-  @IBOutlet weak var languageLabel: UILabel!
-  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var nameLabel: UILabel! {
+    didSet {
+      nameLabel.text = repo.fullRepoName
+    }
+  }
+  @IBOutlet weak var urlView: UITextView! {
+    didSet {
+      urlView.text = repo.htmlURL
+    }
+  }
+  @IBOutlet weak var descriptionText: UITextView! {
+    didSet {
+      descriptionText.text = repo.description
+    }
+  }
+  @IBOutlet weak var languageLabel: UILabel! {
+    didSet {
+      languageLabel.text = repo.language
+    }
+  }
+  @IBOutlet weak var dateLabel: UILabel! {
+    didSet {
+      dateLabel.text = repo.dateUpdated
+    }
+  }
+  
+  var repo: RepoViewModel! 
+  var reposStore: ReposStore!
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    reposStore.fetchRepoImage(for: repo) { (result) -> Void in
+      switch result {
+      case let .success(image):
+        self.imageView.image = image
+      case let .failure(error):
+        print("Error fetching image for repo \(error)")
+      }
+    }
+  }
 }
