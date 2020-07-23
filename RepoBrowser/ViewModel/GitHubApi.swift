@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Repos: Decodable {
+struct Repos: Codable {
   let repo: [Repo]
   
   enum CodingKeys: String, CodingKey {
@@ -19,7 +19,6 @@ struct Repos: Decodable {
 struct GitHubApi {
   
   let baseURLString = "https://api.github.com/search/repositories"
-  
   
   func makeGitHubURL(query: String) -> URL {
     var components = URLComponents(string: baseURLString)!
@@ -49,8 +48,5 @@ struct GitHubApi {
     } catch {
       return .failure(error)
     }
-    
   }
-  
-  
 }

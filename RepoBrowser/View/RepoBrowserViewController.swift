@@ -9,14 +9,13 @@
 import UIKit
 
 class RepoBrowserViewController: UIViewController {
-
+  
   var gitHubApi = GitHubApi()
   var reposStore: ReposStore!
   let repoDataSource = RepoDataSource()
   
   @IBOutlet weak var searchTextField: UITextField!
   @IBOutlet weak var collectionView: UICollectionView!
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,8 +37,7 @@ class RepoBrowserViewController: UIViewController {
       preconditionFailure("Unexpected segue identifier.")
     }
   }
-
-
+  
   @IBAction func searchButton(_ sender: Any) {
     searchTextField.endEditing(true)
   }
@@ -57,8 +55,6 @@ extension RepoBrowserViewController: UITextFieldDelegate {
       var gitHubURL: URL {
         return gitHubApi.makeGitHubURL(query: query)
       }
-      print("\(gitHubURL)")
-      
       reposStore.fetchRepos(url: gitHubURL) {
         (reposResult) in
         switch reposResult {
@@ -75,8 +71,6 @@ extension RepoBrowserViewController: UITextFieldDelegate {
       searchTextField.text = ""
     }
   }
-  
-  
 }
 
 // MARK: - UICollectionViewDelegate
