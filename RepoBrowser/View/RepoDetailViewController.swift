@@ -10,6 +10,9 @@ import UIKit
 
 class RepoDetailViewController: UIViewController {
   
+  var repo: RepoViewModel!
+  var reposStore: ReposStore!
+  
   @IBOutlet weak var imageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel! {
     didSet {
@@ -37,12 +40,8 @@ class RepoDetailViewController: UIViewController {
     }
   }
   
-  var repo: RepoViewModel! 
-  var reposStore: ReposStore!
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     reposStore.fetchRepoImage(for: repo) { (result) -> Void in
       switch result {
       case let .success(image):
