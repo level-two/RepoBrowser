@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct Repo: Codable {
+struct GitRepo: Codable {
   let fullRepoName: String?
   let owner: Owner?
   let htmlURL: String?
-  let description: String?
+  let repoDescription: String?
   let language: String?
   let dateUpdated: Date?
   
@@ -20,7 +20,7 @@ struct Repo: Codable {
     case fullRepoName = "full_name"
     case owner
     case htmlURL = "html_url"
-    case description
+    case repoDescription
     case language
     case dateUpdated = "updated_at"
   }

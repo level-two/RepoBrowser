@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum RepoImageError: Error {
   case imageCreationError
@@ -16,6 +17,16 @@ enum RepoImageError: Error {
 class ReposStore {
   
   var gitHubApi = GitHubApi()
+  
+  let persistentContainer: NSPersistentContainer = {
+    let container = NSPersistentContainer(name: "RepoBrowser")
+    container.loadPersistentStores { (description, error) in
+      if let error = error {
+        print("Error setting up coredata \(error)")
+      }
+    }
+    return container
+  }()
   
   let session: URLSession = {
     let config = URLSessionConfiguration.default
@@ -38,7 +49,27 @@ class ReposStore {
     guard let reposData = data else {
       return .failure(error!)
     }
-    return gitHubApi.parseJSON(reposData: reposData)
+    let context = persistentContainer.viewContext
+    
+    switch gitHubApi.parseJSON(reposData: reposData) {
+    case let .success(gitRepos):
+      let repos = gitRepos.map { gitRepo -> Repo in
+        var repo: Repo!
+        context.performAndWait {
+          repo = Repo(context: context)
+          repo.dateUpdated = gitRepo.dateUpdated
+          repo.fullRepoName = gitRepo.fullRepoName
+          repo.htmlURL = gitRepo.htmlURL
+          repo.language = gitRepo.language
+          repo.repoDescription = gitRepo.repoDescription
+          repo.avatarImgURL = gitRepo.owner?.avatarImgURL
+        }
+        return repo
+      }
+      return .success(repos)
+    case let .failure(error):
+      return .failure(error)
+    }
   }
   
   func fetchRepoImage(for repo: RepoViewModel, completion: @escaping (Result<UIImage, Error>) -> Void) {

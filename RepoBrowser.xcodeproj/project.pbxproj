@@ -14,11 +14,12 @@
 		E35E653924C0CFAE0009F975 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35E653724C0CFAE0009F975 /* LaunchScreen.storyboard */; };
 		E35E656224C5DC280009F975 /* GitHubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656124C5DC280009F975 /* GitHubApi.swift */; };
 		E35E656524C5E4040009F975 /* ReposStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656424C5E4040009F975 /* ReposStore.swift */; };
-		E35E656724C5E85A0009F975 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656624C5E85A0009F975 /* Repo.swift */; };
+		E35E656724C5E85A0009F975 /* GitRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656624C5E85A0009F975 /* GitRepo.swift */; };
 		E35E656A24C72C630009F975 /* RepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656924C72C630009F975 /* RepoViewModel.swift */; };
 		E35E656C24C733180009F975 /* RepoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656B24C733180009F975 /* RepoDataSource.swift */; };
 		E35E656E24C7412E0009F975 /* RepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656D24C7412E0009F975 /* RepoCollectionViewCell.swift */; };
 		E35E657024C84F9E0009F975 /* RepoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35E656F24C84F9E0009F975 /* RepoDetailViewController.swift */; };
+		E35E658C24CAD3B40009F975 /* RepoBrowser.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E35E658A24CAD3B40009F975 /* RepoBrowser.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,11 +32,12 @@
 		E35E653A24C0CFAE0009F975 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E35E656124C5DC280009F975 /* GitHubApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubApi.swift; sourceTree = "<group>"; };
 		E35E656424C5E4040009F975 /* ReposStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReposStore.swift; sourceTree = "<group>"; };
-		E35E656624C5E85A0009F975 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		E35E656624C5E85A0009F975 /* GitRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepo.swift; sourceTree = "<group>"; };
 		E35E656924C72C630009F975 /* RepoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoViewModel.swift; sourceTree = "<group>"; };
 		E35E656B24C733180009F975 /* RepoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDataSource.swift; sourceTree = "<group>"; };
 		E35E656D24C7412E0009F975 /* RepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E35E656F24C84F9E0009F975 /* RepoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailViewController.swift; sourceTree = "<group>"; };
+		E35E658B24CAD3B40009F975 /* RepoBrowser.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RepoBrowser.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		E35E652024C0CFA50009F975 = {
 			isa = PBXGroup;
 			children = (
+				E35E658A24CAD3B40009F975 /* RepoBrowser.xcdatamodeld */,
 				E35E652B24C0CFA50009F975 /* RepoBrowser */,
 				E35E652A24C0CFA50009F975 /* Products */,
 			);
@@ -104,7 +107,7 @@
 		E35E656824C5E85F0009F975 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E35E656624C5E85A0009F975 /* Repo.swift */,
+				E35E656624C5E85A0009F975 /* GitRepo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,7 +188,8 @@
 				E35E656524C5E4040009F975 /* ReposStore.swift in Sources */,
 				E35E656C24C733180009F975 /* RepoDataSource.swift in Sources */,
 				E35E656E24C7412E0009F975 /* RepoCollectionViewCell.swift in Sources */,
-				E35E656724C5E85A0009F975 /* Repo.swift in Sources */,
+				E35E656724C5E85A0009F975 /* GitRepo.swift in Sources */,
+				E35E658C24CAD3B40009F975 /* RepoBrowser.xcdatamodeld in Sources */,
 				E35E653124C0CFA50009F975 /* RepoBrowserViewController.swift in Sources */,
 				E35E652D24C0CFA50009F975 /* AppDelegate.swift in Sources */,
 				E35E657024C84F9E0009F975 /* RepoDetailViewController.swift in Sources */,
@@ -386,6 +390,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E35E658A24CAD3B40009F975 /* RepoBrowser.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E35E658B24CAD3B40009F975 /* RepoBrowser.xcdatamodel */,
+			);
+			currentVersion = E35E658B24CAD3B40009F975 /* RepoBrowser.xcdatamodel */;
+			path = RepoBrowser.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E35E652124C0CFA50009F975 /* Project object */;
 }

@@ -7,26 +7,26 @@
 //
 
 import Foundation
+import CoreData
 
-struct RepoViewModel {
+class RepoViewModel {
   let fullRepoName: String?
   let htmlURL: String?
-  let description: String?
+  let repoDescription: String?
   let language: String?
   let dateUpdated: String?
   let avatarImgURL: URL?
   
   let dateFormatter = DateFormatter()
   
-  //MARK: Dependency injection
   init(repo: Repo) {
     self.fullRepoName = repo.fullRepoName
     self.htmlURL = repo.htmlURL
-    self.description = repo.description
+    self.repoDescription = repo.repoDescription
     self.language = repo.language
     dateFormatter.dateStyle = .full
     self.dateUpdated = dateFormatter.string(from: repo.dateUpdated!)
-    self.avatarImgURL = repo.owner?.avatarImgURL
+    self.avatarImgURL = repo.avatarImgURL
   }
   
 }
