@@ -9,7 +9,7 @@
 import Foundation
 
 struct Repos: Codable {
-  let repo: [Repo]
+  let repo: [GitRepo]
   
   enum CodingKeys: String, CodingKey {
     case repo = "items"
@@ -37,7 +37,7 @@ struct GitHubApi {
     return components.url!
   }
   
-  func parseJSON(reposData: Data) -> Result<[Repo], Error> {
+  func parseJSON(reposData: Data) -> Result<[GitRepo], Error> {
     let decoder = JSONDecoder()
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

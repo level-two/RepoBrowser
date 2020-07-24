@@ -26,7 +26,7 @@ class RepoDetailViewController: UIViewController {
   }
   @IBOutlet weak var descriptionText: UITextView! {
     didSet {
-      descriptionText.text = repo.description
+      descriptionText.text = repo.repoDescription
     }
   }
   @IBOutlet weak var languageLabel: UILabel! {
