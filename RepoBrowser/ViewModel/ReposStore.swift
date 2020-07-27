@@ -36,7 +36,14 @@ class ReposStore {
   func fetchRepos(url: URL?, completion: @escaping (Result<[Repo], Error>) -> Void) {
     if let requestUrl = url {
       let task = session.dataTask(with: requestUrl) { (data, response, error) in
-        let result = self.processReposRequest(data: data, error: error)
+       var result = self.processReposRequest(data: data, error: error)
+        if case .success = result {
+          do {
+            try self.persistentContainer.viewContext.save()
+          } catch {
+            result = .failure(error)
+          }
+        }
         OperationQueue.main.addOperation {
           completion(result)
         }
@@ -100,5 +107,22 @@ class ReposStore {
         }
     }
     return .success(image)
+  }
+  
+  func fetchReposOnLoad(completion: @escaping (Result<[Repo], Error>) -> Void) {
+    let fetchRequest: NSFetchRequest<Repo> = Repo.fetchRequest()
+    let sortByName = NSSortDescriptor(key: #keyPath(Repo.fullRepoName),
+                                           ascending: true)
+    fetchRequest.sortDescriptors = [sortByName]
+    
+    let viewContext = persistentContainer.viewContext
+    viewContext.perform {
+      do {
+        let allRepos = try viewContext.fetch(fetchRequest)
+        completion(.success(allRepos))
+      } catch {
+        completion(.failure(error))
+      }
+    }
   }
 }
