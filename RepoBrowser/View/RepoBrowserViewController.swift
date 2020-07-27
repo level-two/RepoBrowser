@@ -22,6 +22,7 @@ class RepoBrowserViewController: UIViewController {
     searchTextField.delegate = self
     collectionView.dataSource = repoDataSource
     collectionView.delegate = self
+    self.updateDataSource()
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -35,6 +36,18 @@ class RepoBrowserViewController: UIViewController {
       }
     default:
       preconditionFailure("Unexpected segue identifier.")
+    }
+  }
+  
+  func updateDataSource() {
+    reposStore.fetchReposOnLoad { (result) in
+      switch result {
+      case let .success(repo):
+        self.repoDataSource.repo = repo.map({return RepoViewModel(repo: $0 )})
+      case .failure:
+        self.repoDataSource.repo.removeAll()
+      }
+      self.collectionView.reloadSections(IndexSet(integer: 0))
     }
   }
   
@@ -66,6 +79,8 @@ extension RepoBrowserViewController: UITextFieldDelegate {
           print("Error downloading repos:  \(error) $$$$")
         }
         self.collectionView.reloadSections(IndexSet(integer: 0))
+        
+//        self.updateDataSource()
       }
     } else {
       searchTextField.text = ""
