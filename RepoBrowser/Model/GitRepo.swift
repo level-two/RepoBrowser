@@ -15,6 +15,7 @@ struct GitRepo: Codable {
   let repoDescription: String?
   let language: String?
   let dateUpdated: Date?
+  let stars: Int32?
   
   enum CodingKeys: String, CodingKey {
     case fullRepoName = "full_name"
@@ -23,6 +24,7 @@ struct GitRepo: Codable {
     case repoDescription
     case language
     case dateUpdated = "updated_at"
+    case stars = "stargazers_count"
   }
 }
 
