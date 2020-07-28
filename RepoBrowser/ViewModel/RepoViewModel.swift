@@ -16,6 +16,7 @@ class RepoViewModel {
   let language: String?
   let dateUpdated: String?
   let avatarImgURL: URL?
+  let stars: Int32?
   
   let dateFormatter = DateFormatter()
   
@@ -27,6 +28,7 @@ class RepoViewModel {
     dateFormatter.dateStyle = .full
     self.dateUpdated = dateFormatter.string(from: repo.dateUpdated!)
     self.avatarImgURL = repo.avatarImgURL
+    self.stars = repo.stars
   }
   
 }

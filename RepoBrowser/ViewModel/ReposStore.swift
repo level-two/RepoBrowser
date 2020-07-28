@@ -35,6 +35,7 @@ class ReposStore {
   
   func fetchRepos(url: URL?, completion: @escaping (Result<[Repo], Error>) -> Void) {
     if let requestUrl = url {
+      deleteReposFromCoreData()
       let task = session.dataTask(with: requestUrl) { (data, response, error) in
        var result = self.processReposRequest(data: data, error: error)
         if case .success = result {
@@ -70,6 +71,7 @@ class ReposStore {
           repo.language = gitRepo.language
           repo.repoDescription = gitRepo.repoDescription
           repo.avatarImgURL = gitRepo.owner?.avatarImgURL
+          repo.stars = gitRepo.stars!
         }
         return repo
       }
@@ -111,10 +113,9 @@ class ReposStore {
   
   func fetchReposOnLoad(completion: @escaping (Result<[Repo], Error>) -> Void) {
     let fetchRequest: NSFetchRequest<Repo> = Repo.fetchRequest()
-    let sortByName = NSSortDescriptor(key: #keyPath(Repo.fullRepoName),
-                                           ascending: true)
-    fetchRequest.sortDescriptors = [sortByName]
-    
+    fetchRequest.fetchLimit = 100
+    let sort = NSSortDescriptor(key: #keyPath(Repo.stars), ascending: false)
+    fetchRequest.sortDescriptors = [sort]
     let viewContext = persistentContainer.viewContext
     viewContext.perform {
       do {
@@ -125,4 +126,17 @@ class ReposStore {
       }
     }
   }
+  
+  func deleteReposFromCoreData() {
+    let fetchRequest: NSFetchRequest<Repo> = Repo.fetchRequest()
+    let viewContext = persistentContainer.viewContext
+    if let repos = try? viewContext.fetch(fetchRequest) {
+      for repo in repos {
+        viewContext.delete(repo)
+      }
+    }
+  }
+  
+  
+  
 }

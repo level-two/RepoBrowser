@@ -79,8 +79,6 @@ extension RepoBrowserViewController: UITextFieldDelegate {
           print("Error downloading repos:  \(error) $$$$")
         }
         self.collectionView.reloadSections(IndexSet(integer: 0))
-        
-//        self.updateDataSource()
       }
     } else {
       searchTextField.text = ""
