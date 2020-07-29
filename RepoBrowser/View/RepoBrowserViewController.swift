@@ -99,7 +99,7 @@ extension RepoBrowserViewController: UICollectionViewDelegate {
       }
       let repoImageIndexPath = IndexPath(item: repoImageIndex, section: 0)
       if let cell = self.collectionView.cellForItem(at: repoImageIndexPath) as? RepoCollectionViewCell {
-        cell.updateCellImage(displaying: image)
+        cell.updateCell(displaying: image, displaying: repoForDisplay.fullRepoName)
       }
     }
   }

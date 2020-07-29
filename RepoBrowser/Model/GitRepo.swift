@@ -21,7 +21,7 @@ struct GitRepo: Codable {
     case fullRepoName = "full_name"
     case owner
     case htmlURL = "html_url"
-    case repoDescription
+    case repoDescription = "description"
     case language
     case dateUpdated = "updated_at"
     case stars = "stargazers_count"

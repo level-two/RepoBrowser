@@ -14,13 +14,16 @@ class RepoCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var spinner: UIActivityIndicatorView!
   @IBOutlet weak var label: UILabel!
   
-  func updateCellImage(displaying image: UIImage?) {
-    if let imageToDisplay = image {
+  func updateCell(displaying image: UIImage?, displaying text: String? ) {
+    if let imageToDisplay = image,
+      let textToDisplay = text {
       spinner.stopAnimating()
       imageView.image = imageToDisplay
+      label.text = textToDisplay
     } else {
       spinner.startAnimating()
       imageView.image = nil
+      label.text = ""
     }
   }
 }
