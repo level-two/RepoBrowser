@@ -19,7 +19,7 @@ class RepoDataSource: NSObject, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let identifier = "RepoCollectionViewCell"
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RepoCollectionViewCell
-    cell.updateCellImage(displaying: nil)
+    cell.updateCell(displaying: nil, displaying: nil)
     return cell
   }
   

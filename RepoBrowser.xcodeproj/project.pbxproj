@@ -88,8 +88,8 @@
 			children = (
 				E35E653024C0CFA50009F975 /* RepoBrowserViewController.swift */,
 				E35E656F24C84F9E0009F975 /* RepoDetailViewController.swift */,
-				E35E656B24C733180009F975 /* RepoDataSource.swift */,
 				E35E656D24C7412E0009F975 /* RepoCollectionViewCell.swift */,
+				E35E656B24C733180009F975 /* RepoDataSource.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

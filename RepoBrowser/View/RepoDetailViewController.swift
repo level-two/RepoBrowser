@@ -14,31 +14,11 @@ class RepoDetailViewController: UIViewController {
   var reposStore: ReposStore!
   
   @IBOutlet weak var imageView: UIImageView!
-  @IBOutlet weak var nameLabel: UILabel! {
-    didSet {
-      nameLabel.text = repo.fullRepoName
-    }
-  }
-  @IBOutlet weak var urlView: UITextView! {
-    didSet {
-      urlView.text = repo.htmlURL
-    }
-  }
-  @IBOutlet weak var descriptionText: UITextView! {
-    didSet {
-      descriptionText.text = repo.repoDescription
-    }
-  }
-  @IBOutlet weak var languageLabel: UILabel! {
-    didSet {
-      languageLabel.text = repo.language
-    }
-  }
-  @IBOutlet weak var dateLabel: UILabel! {
-    didSet {
-      dateLabel.text = repo.dateUpdated
-    }
-  }
+  @IBOutlet weak var nameLabel: UILabel! 
+  @IBOutlet weak var urlView: UITextView!
+  @IBOutlet weak var descriptionText: UITextView!
+  @IBOutlet weak var languageLabel: UILabel!
+  @IBOutlet weak var dateLabel: UILabel!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,5 +30,10 @@ class RepoDetailViewController: UIViewController {
         print("Error fetching image for repo \(error)")
       }
     }
+    nameLabel.text = repo.fullRepoName
+    urlView.text = repo.htmlURL
+    descriptionText.text = repo.repoDescription
+    languageLabel.text = repo.language
+    dateLabel.text = repo.dateUpdated
   }
 }
