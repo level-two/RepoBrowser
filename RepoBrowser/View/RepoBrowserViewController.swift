@@ -13,6 +13,8 @@ class RepoBrowserViewController: UIViewController {
   var gitHubApi = GitHubApi()
   var reposStore: ReposStore!
   let repoDataSource = RepoDataSource()
+  let columns: CGFloat = 3.0
+  let inset: CGFloat = 8.0
   
   @IBOutlet weak var searchTextField: UITextField!
   @IBOutlet weak var collectionView: UICollectionView!
@@ -73,10 +75,9 @@ extension RepoBrowserViewController: UITextFieldDelegate {
         switch reposResult {
         case let .success(repos):
           self.repoDataSource.repo = repos.map({return RepoViewModel(repo: $0 )})
-          print("Successfully found \(repos.count) repos.")
         case let .failure(error):
           self.repoDataSource.repo.removeAll()
-          print("Error downloading repos:  \(error) $$$$")
+          print("Error downloading repos:  \(error)--")
         }
         self.collectionView.reloadSections(IndexSet(integer: 0))
       }
@@ -103,5 +104,14 @@ extension RepoBrowserViewController: UICollectionViewDelegate {
       }
     }
   }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension RepoBrowserViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let width = Int((collectionView.frame.width / columns ) - inset)
+    return CGSize(width: width, height: width)
+  }
+  
 }
 
