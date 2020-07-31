@@ -74,8 +74,8 @@
 				E35E656324C5DC310009F975 /* ViewModel */,
 				E35E656024C5D69C0009F975 /* View */,
 				E3D756E724D43A6F00FE35DE /* Storyboards */,
-				E35E653524C0CFAE0009F975 /* Assets.xcassets */,
 				E35E652C24C0CFA50009F975 /* AppDelegate.swift */,
+				E35E653524C0CFAE0009F975 /* Assets.xcassets */,
 				E35E653A24C0CFAE0009F975 /* Info.plist */,
 				E35E658A24CAD3B40009F975 /* RepoBrowser.xcdatamodeld */,
 			);
