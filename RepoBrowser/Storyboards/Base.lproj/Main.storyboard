@@ -31,7 +31,7 @@
                                             <constraint firstAttribute="width" constant="40" id="Fac-7T-gyA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                        <state key="normal" image="magnifyingglass.circle" catalog="system">
+                                        <state key="normal" image="search_circle">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                         </state>
                                         <connections>
@@ -145,10 +145,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" editable="NO" text="URL" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Kuy-mW-XID">
-                                                <rect key="frame" x="0.0" y="20" width="414" height="20"/>
+                                                <rect key="frame" x="0.0" y="20" width="414" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="rut-s5-eHi"/>
+                                                    <constraint firstAttribute="height" constant="30" id="rut-s5-eHi"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -156,7 +156,7 @@
                                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" editable="NO" text="Description" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Juz-cX-gG8">
-                                                <rect key="frame" x="0.0" y="40" width="414" height="326.5"/>
+                                                <rect key="frame" x="0.0" y="50" width="414" height="316.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -231,6 +231,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="magnifyingglass.circle" catalog="system" width="128" height="121"/>
+        <image name="search_circle" width="33.5" height="33.5"/>
     </resources>
 </document>

@@ -54,7 +54,6 @@
 		E35E652024C0CFA50009F975 = {
 			isa = PBXGroup;
 			children = (
-				E35E658A24CAD3B40009F975 /* RepoBrowser.xcdatamodeld */,
 				E35E652B24C0CFA50009F975 /* RepoBrowser */,
 				E35E652A24C0CFA50009F975 /* Products */,
 			);
@@ -71,14 +70,14 @@
 		E35E652B24C0CFA50009F975 /* RepoBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				E35E652C24C0CFA50009F975 /* AppDelegate.swift */,
 				E35E656824C5E85F0009F975 /* Model */,
 				E35E656324C5DC310009F975 /* ViewModel */,
 				E35E656024C5D69C0009F975 /* View */,
-				E35E653224C0CFA50009F975 /* Main.storyboard */,
+				E3D756E724D43A6F00FE35DE /* Storyboards */,
 				E35E653524C0CFAE0009F975 /* Assets.xcassets */,
-				E35E653724C0CFAE0009F975 /* LaunchScreen.storyboard */,
+				E35E652C24C0CFA50009F975 /* AppDelegate.swift */,
 				E35E653A24C0CFAE0009F975 /* Info.plist */,
+				E35E658A24CAD3B40009F975 /* RepoBrowser.xcdatamodeld */,
 			);
 			path = RepoBrowser;
 			sourceTree = "<group>";
@@ -110,6 +109,15 @@
 				E35E656624C5E85A0009F975 /* GitRepo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E3D756E724D43A6F00FE35DE /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E35E653224C0CFA50009F975 /* Main.storyboard */,
+				E35E653724C0CFAE0009F975 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
