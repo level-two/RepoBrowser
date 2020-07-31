@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     
     let rootViewController = window!.rootViewController as! UINavigationController
-    let repoListViewController = rootViewController.topViewController as! RepoBrowserViewController
-    repoListViewController.reposStore = ReposStore()
+    let repoBrowserViewController = rootViewController.topViewController as! RepoBrowserViewController
+    repoBrowserViewController.reposStore = ReposStore()
     return true
   }
   
